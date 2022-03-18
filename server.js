@@ -22,12 +22,12 @@ app.get("/notes", function(req, res) {
 });
 
 app.get("/api/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "db.json"));
+    res.sendFile(path.join(__dirname, "./db/db.json"));
 });
 
 // Takes a JSON input with keys "title" and "text" and adds a new note object with that message to the db.json file
 app.post("/api/notes", function(req, res) {
-    fs.readFile(path.join(__dirname, "db.json"), "utf8", function(error, response) {
+    fs.readFile(path.join(__dirname, "./db/db.json"), "utf8", function(error, response) {
         if (error) {
             console.log(error);
         }
@@ -41,7 +41,7 @@ app.post("/api/notes", function(req, res) {
         };
         notes.push(newNote);
         res.json(newNote);
-        fs.writeFile(path.join(__dirname, "db.json"), JSON.stringify(notes, null, 2), function(err) {
+        fs.writeFile(path.join(__dirname, "./db/db.json"), JSON.stringify(notes, null, 2), function(err) {
             if (err) throw err;
         });
     });
@@ -49,7 +49,7 @@ app.post("/api/notes", function(req, res) {
 // Deletes the note object with requested id from the db.json file, returns the deleted note;
 app.delete("/api/notes/:id", function(req, res) {
     const deleteId = req.params.id;
-    fs.readFile("db.json", "utf8", function(error, response) {
+    fs.readFile("./db/db.json", "utf8", function(error, response) {
         if (error) {
             console.log(error);
         }
@@ -61,7 +61,7 @@ app.delete("/api/notes/:id", function(req, res) {
             for (let i=0; i<notes.length; i++) {
                 notes[i].id = i+1;
             }
-            fs.writeFile("db.json", JSON.stringify(notes, null, 2), function(err) {
+            fs.writeFile("./db/db.json", JSON.stringify(notes, null, 2), function(err) {
                 if (err) throw err;
             });
         } else {
