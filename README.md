@@ -27,6 +27,8 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ## Link
 https://secure-earth-18516.herokuapp.com/
 ## Demo
+<img width="950" alt="Capture" src="https://user-images.githubusercontent.com/92004832/159099353-dac61e47-c91b-430d-97c2-293b267c1474.PNG">
+<img width="952" alt="Capture2" src="https://user-images.githubusercontent.com/92004832/159099362-d82f1747-bb52-46c3-91d8-f24224bb5c49.PNG">
 
 # Note Taker Starter Code
 
